@@ -9,15 +9,6 @@ class jsonUser{
     {
         $this->db = new Database();
     }
-    public function showJsonUser(){
-        $sql = "SELECT * FROM task ";
-        $result = $this->db->select($sql);
-        $arrayTask = array();
-        while($row = $result -> fetch_assoc()){
-            array_push($arrayTask,new task($row["id"],$row["name"],$row["content"],$row["date"],$row["check_status"],$row["user_id"],$row["time"]));
-        }
-        echo json_encode($arrayTask);
-    }
     public function insertUser($namelogin,$password){
         $nameLogin = mysqli_real_escape_string($this->db->link, $namelogin);
         $passWord = mysqli_real_escape_string($this->db->link, $password);
@@ -27,8 +18,8 @@ class jsonUser{
             if ($resultCheck) {
                 echo "Id already exists ";
             } else {
-                $sql = "INSERT INTO `user`(`id`, `fullname`, `ngaySinh`, `phone`, `namelogin`, `password`) 
-                VALUES (null,'','','','$nameLogin','$passWord')";
+                $sql = "INSERT INTO `user`(`fullname`, `ngaySinh`, `phone`, `namelogin`, `password`) 
+                VALUES ('','','','$nameLogin','$passWord')";
                 $result = $this->db->insert($sql);
                 if ($result) {
                     echo "success";

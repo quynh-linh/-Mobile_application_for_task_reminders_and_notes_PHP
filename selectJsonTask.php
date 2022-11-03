@@ -1,5 +1,7 @@
 <?php include './inc/handle.php' ?>
-<?php 
-    $get = $jsonTask->showJsonTask();
-    echo $get;
+<?php  
+    if (isset($_POST['nameLogin'])) {
+        $get = $jsonTask->showJsonTask($_POST['nameLogin']);
+        echo $get;
+    } 
 ?>
