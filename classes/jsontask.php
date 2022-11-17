@@ -9,8 +9,17 @@ class jsontask{
     {
         $this->db = new Database();
     }
+    public function showJsonDateTask($nameLogin,$date){
+        $sql = "SELECT * FROM task WHERE user_id = '$nameLogin' AND date = '$date' ORDER BY date ASC ";
+        $result = $this->db->select($sql);
+        $arrayTask = array();
+        while($row = $result -> fetch_assoc()){
+            array_push($arrayTask,new task($row["id"],$row["name"],$row["content"],$row["date"],$row["user_id"],$row["time"]));
+        }
+        echo json_encode($arrayTask);
+    }
     public function showJsonTask($nameLogin){
-        $sql = "SELECT * FROM task WHERE user_id = '$nameLogin' ";
+        $sql = "SELECT * FROM task WHERE user_id = '$nameLogin' ORDER BY date ASC ";
         $result = $this->db->select($sql);
         $arrayTask = array();
         while($row = $result -> fetch_assoc()){
