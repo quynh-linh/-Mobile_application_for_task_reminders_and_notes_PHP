@@ -62,7 +62,7 @@ class jsontask{
             WHERE id = '$id' AND user_id = '$userId'";
             $result = $this->db->insert($sql);
             if ($result) {
-                echo "$sql";
+                echo "success";
             } else {
                 echo "error";
             }
