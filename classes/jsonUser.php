@@ -71,12 +71,12 @@ class jsonUser{
         }
     }
     public function selectUser($user_name){        
-        $sql = "SELECT * FROM `user` WHERE namelogin ='$user_name'";
+        $sql = "SELECT * FROM `user` WHERE namelogin ='linhlinh1'";
         $result = $this->db->select($sql);
         //$arrayTask = array();
         if ($result) {
             while($row = $result -> fetch_assoc()){
-               $user = new user($row["fullname"],$row["ngaySinh"],$row["phone"],$row["namelogin"],$row["password"]);
+               $user = new user($row["fullname"],$row["ngaySinh"],$row["phone"],$row["namelogin"],$row["password"],$row["image"]);
             }
             echo json_encode($user);
         }   

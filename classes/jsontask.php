@@ -72,9 +72,9 @@ class jsontask{
         $sql = "DELETE FROM `task` WHERE id ='$id'";
         $result = $this->db->delete($sql);
         if ($result) {
-           echo "Delete Success";
+           echo "success";
         } else {
-            echo "Error Delete";
+            echo "error";
         }
     }
 }   
