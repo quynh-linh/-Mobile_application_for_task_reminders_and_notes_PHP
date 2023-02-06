@@ -71,7 +71,7 @@ class jsonUser{
         }
     }
     public function selectUser($user_name){        
-        $sql = "SELECT * FROM `user` WHERE namelogin ='linhlinh1'";
+        $sql = "SELECT * FROM `user` WHERE namelogin ='$user_name'";
         $result = $this->db->select($sql);
         //$arrayTask = array();
         if ($result) {
